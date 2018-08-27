@@ -1,12 +1,17 @@
 import { Injectable } from '@angular/core';
 import { New } from '../../models/new';
 import { User } from '../../models/user';
+import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class NewsProvider {
 
   createNew(text: string) {
-    return new New(text, new User('Test', 'test@test.com'));
+    return Observable.create(observer => {
+      let newCreated: New  = new New(text, new User('Test', 'test@test.com'));
+      observer.next(newCreated);
+      observer.complete();
+    });
   }
 
   getData(): any[] {

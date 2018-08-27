@@ -47,9 +47,8 @@ export class MarketPage {
       inputs: [
         {
           name: 'bid',
-          placeholder: 'bid',
           type: 'number',
-          value: 'player.marketValue'
+          value: player.marketValue + ''
         }
       ],
       buttons: [

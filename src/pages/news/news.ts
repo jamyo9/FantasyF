@@ -26,10 +26,20 @@ export class NewsPage {
   }
 
   createNew() {
-    this.showLoading()
+    this.showLoading();
     if (this.newToCreate.text.length>0){
-      this.news.splice(0, 0, this.newsProvider.createNew(this.newToCreate.text));
-      this.loading.dismiss();
+      this.newsProvider.createNew(this.newToCreate.text).subscribe(newCreated => {
+        if (newCreated) {        
+          this.news.splice(0, 0, newCreated);
+          this.newToCreate.text = '';
+          this.loading.dismiss();
+        } else {
+          this.showError("Error Creating New");
+        }
+      },
+        error => {
+          this.showError(error);
+        });
     } else {
       this.showError("Text empty!");
     }
