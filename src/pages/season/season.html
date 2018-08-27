@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-navbar>
+    <ion-buttons left>
+        <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>Season</ion-title>
+  </ion-navbar>
+</ion-header>
+   
+ <ion-content padding>
+  <ion-grid>
+    <ion-row>
+      <ion-col  text-center>
+        Pos.
+      </ion-col>
+      <ion-col >
+        Name
+      </ion-col>
+      <ion-col  text-center>
+        Points
+      </ion-col>
+    </ion-row>
+    <ion-row *ngFor="let user of users">
+      <ion-col  text-center>
+        {{user.position}}
+      </ion-col>
+      <ion-col >
+        {{user.name}}
+      </ion-col>
+      <ion-col  text-center>
+        {{user.points}}
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

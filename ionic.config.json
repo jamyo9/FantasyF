@@ -1,0 +1,8 @@
+{
+  "name": "FantasyF",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular",
+  "pro_id": "c980ccd2"
+}

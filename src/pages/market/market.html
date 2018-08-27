@@ -1,0 +1,82 @@
+<ion-header>
+  <ion-navbar>
+    <ion-buttons left>
+        <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>Market</ion-title>
+  </ion-navbar>
+</ion-header>
+     
+<ion-content padding>
+  <ion-segment [(ngModel)]="marketTabs">
+    <ion-segment-button value="market">
+      <ion-icon name="swap"></ion-icon>
+      <br />
+      <span>Market</span>
+    </ion-segment-button>
+    <ion-segment-button value="bids">
+      <ion-icon name="hammer"></ion-icon>
+      <br />
+      <span>Bids</span>
+    </ion-segment-button>
+    <ion-segment-button value="offers">
+      <ion-icon name="eye"></ion-icon>
+      <br />
+      <span>Offers</span>
+    </ion-segment-button>
+  </ion-segment>
+
+  <!-- Market Segment -->
+  <div [ngSwitch]="marketTabs">
+    <ion-list *ngSwitchCase="'market'">
+      <ion-item *ngFor="let player of playersInMarket" (click)='openPlayerDetails(player.id)'>
+        <ion-avatar slot="start" item-start>
+          <img src="{{player.imgUrl}}" >
+        </ion-avatar>
+        <ion-label>
+          <h2>{{player.name}}</h2>
+          <h3>{{player.owner}}</h3>
+          <p>{{player.team}}</p>
+        </ion-label>
+
+        <button ion-button item-right (click)="openBid(player.id, $event)">{{player.marketValue | currency}}</button>
+      </ion-item>
+    </ion-list>
+
+    <!-- My Bids Segment -->
+    <ion-list *ngSwitchCase="'bids'">
+      <ion-item *ngFor="let player of myBids" (click)='openPlayerDetails(player.id)'>
+        <ion-avatar slot="start" item-start>
+          <img src="{{player.imgUrl}}" >
+        </ion-avatar>
+        <ion-label>
+          <h2>{{player.name}}</h2>
+          <h3>{{player.owner}}</h3>
+          <p>{{player.team}}</p>
+        </ion-label>
+        
+        <button ion-button item-right color="danger" (click)="cancelBid($event)">Cancel</button>
+        <button ion-button item-right (click)="openBid(player.id, $event)">{{player.marketValue | currency}}</button>
+      </ion-item>
+    </ion-list>
+
+    <!-- Offers Segment-->
+    <ion-list *ngSwitchCase="'offers'">
+      <ion-item *ngFor="let player of offers" (click)='openPlayerDetails(player.id)'>
+          <ion-avatar slot="start" item-start>
+            <img src="{{player.imgUrl}}" >
+          </ion-avatar>
+          <ion-label>
+            <h2>{{player.name}}</h2>
+            <h3>{{player.owner}}</h3>
+            <p>{{player.team}}</p>
+          </ion-label>
+  
+          <button ion-button item-right color="danger" (click)="rejectOffer($event)">Deny</button>
+          <button ion-button item-right color="success" (click)="acceptOffer($event)">Accept</button>
+        </ion-item>
+    </ion-list>
+  </div>
+</ion-content>
