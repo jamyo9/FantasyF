@@ -22,15 +22,15 @@ export class SeasonProvider {
   }
 
   getClasification():User[] {
-    USER_VALUES.sort(
+    var ret = USER_VALUES.sort(
       function(a,b) {
         return (a.points > b.points) ? -1 : ((b.points > a.points) ? 1 : 0);
       }
     );
-    USER_VALUES.forEach((a, index) => {
+    ret.forEach((a, index) => {
       a.position = index+1;
     });
-    return USER_VALUES;
+    return ret;
   }
 
 

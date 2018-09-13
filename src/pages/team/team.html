@@ -10,5 +10,32 @@
   </ion-header>
 
   <ion-content padding>
-      Team
+      <h1>My Team</h1>
+      <ion-item>
+        <ion-label>Formation</ion-label>
+        <ion-select interface="popover" [(ngModel)]="formationSelected.value" (ionChange)="changeFormation($event)">
+          <ion-option *ngFor="let formation of posibleFormations" [value]="formation.value">
+            {{formation.text}}
+          </ion-option>
+        </ion-select>
+      </ion-item>
+
+      <field [formation]="formationSelected.value"></field>
+
+      <!-- Market Segment -->
+      <div>
+        <h2>Players</h2>
+        <ion-list>
+          <ion-item *ngFor="let player of playersInTeam" (click)='openPlayerDetails(player.id)'>
+            <ion-avatar slot="start" item-start>
+              <img src="{{player.imgUrl}}" >
+            </ion-avatar>
+            <ion-label>
+              <h2>{{player.name}}</h2>
+              <h3>{{player.owner}}</h3>
+              <p>{{player.team}}</p>
+            </ion-label>
+          </ion-item>
+        </ion-list>
+      </div>
   </ion-content>

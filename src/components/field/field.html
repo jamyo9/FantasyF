@@ -1,0 +1,65 @@
+<div class="field">
+  <!-- KEEPER -->
+  <ion-row>
+    <ion-col>
+      <ion-card>
+        <ion-item>
+          <ion-avatar item-start>
+            <img [src]="keeper.imgUrl">
+            <ion-badge class="left-top" color="danger">{{keeper.team}}</ion-badge>
+            <ion-badge class="right-top" color="danger">{{keeper.points}}</ion-badge>
+            {{keeper.name}}
+          </ion-avatar>
+        </ion-item>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+
+  <!-- DEFENDERS -->
+  <ion-row>
+    <ion-col *ngFor="let def of defenders">
+      <ion-card>
+        <ion-item>
+          <ion-avatar item-start>
+            <img [src]="def.imgUrl">
+            <ion-badge class="left-top" color="danger">{{def.team}}</ion-badge>
+            <ion-badge class="right-top" color="danger">{{def.points}}</ion-badge>
+            {{def.name}}
+          </ion-avatar>
+        </ion-item>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+
+  <!-- MIDFIELDERS -->
+  <ion-row>
+    <ion-col *ngFor="let mc of midfielders">
+      <ion-card>
+        <ion-item>
+          <ion-avatar item-start>
+            <img [src]="mc.imgUrl">
+            <ion-badge class="left-top" color="danger">{{mc.team}}</ion-badge>
+            <ion-badge class="right-top" color="danger">{{mc.points}}</ion-badge>
+            {{mc.name}}
+          </ion-avatar>
+        </ion-item>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+
+  <!-- ATTACKERS -->
+  <ion-row>
+    <ion-col *ngFor="let at of attackers">
+      <ion-card>
+        <ion-item>
+          <ion-avatar item-start>
+            <img [src]="at.imgUrl">
+            <ion-badge class="left-top" color="danger">{{at.team}}</ion-badge>
+            <ion-badge class="right-top" color="danger">{{at.points}}</ion-badge>
+            {{at.name}}
+          </ion-avatar>
+        </ion-item>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</div>

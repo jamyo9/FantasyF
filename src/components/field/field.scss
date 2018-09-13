@@ -1,0 +1,58 @@
+.field {
+    background: url(../../assets/imgs/sf_half.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    margin-bottom: 3rem; 
+}
+
+ion-avatar {
+    position: relative;
+    overflow: visible!important;
+    padding: 0rem 0rem;
+    margin: 1rem 2rem;
+    font-weight: bold;
+}
+ion-avatar > img {
+    border-radius:50%;
+    width:5rem;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+ion-row {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    
+    -webkit-flex-flow: row wrap;
+    justify-content: space-around;
+}
+
+ion-col {
+    padding: 5px;
+    margin-top: 10px;
+    
+    line-height: 150px;
+    text-align: center;
+}
+
+ion-badge.right-top {
+    background-color: red;
+    position: absolute;
+    top: -1rem;
+    right: -2rem;
+    border-radius: 50%;
+}
+
+ion-badge.left-top {
+    background-color: red;
+    position: absolute;
+    top: -1rem;
+    left: -2rem;
+    border-radius: 50%;
+}
